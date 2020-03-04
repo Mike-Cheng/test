@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+
+    <script type="text/javascript">
+
+        $(function(){
+            $('#sse').click(function(){
+                ws = new WebSocket("ws://127.0.0.1:8888");
+                $('#close').click(function () {
+                    ws.close();
+                })
+                $('#send').unbind();
+                $('#send').click(function () {
+                    ws.send($('#msg').val()+$('#key').val());
+                })
+
+                // var ws = new WebSocket("ws://localhost:8888");
+//握手监听函数
+                ws.onopen = function (so) {
+                    //状态为1证明握手成功，然后把client自定义的名字发送过去
+                    if (ws.readyState == 1) {
+                        //握手成功后对服务器发送信息
+                        ws.send('type=add&ming=Snake'+random(1,10));
+                    }
+                }
+//错误返回信息函数
+                ws.onerror = function () {
+                    console.log("error");
+                };
+//监听服务器端推送的消息
+                ws.onmessage = function (msg) {
+                    console.log(msg);
+                    var data = JSON.parse(msg.data);
+                    if(data.type == 'add' || data.type == 'msg'){
+                        $('#key').val('&key='+data.code);
+                    }
+                }
+
+//断开WebSocket连接
+                ws.onclose = function () {
+                    ws = false;
+                }
+            })
+
+
+            function random(lower, upper) {
+                return Math.floor(Math.random() * (upper - lower)) + lower;
+            }
+
+
+        })
+
+    </script>
+
+</head>
+<body>
+<div id="sse">
+    <a href="javascript:void(0);">运行 WebSocket</a>
+</div>
+
+<div>
+    <input id="msg" value="msg="/>
+    <input id="key" type="hidden"/>
+    <a href="javascript:void(0);"  id="send">发送消息</a>
+</div>
+
+<div id="close">
+    <a href="javascript:void(0);">关闭 WebSocket</a>
+</div>
+</body>
+</html>

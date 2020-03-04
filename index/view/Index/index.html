@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{js href="__PUBLIC__/js/common.js" /}
+<style>
+</style>
+</head>
+<body>
+<?php echo $a; ?>
+<form>
+	<p>用户名：<input type="" name="username" id='na'/><div></div></p>
+	<p>密&nbsp;&nbsp;&nbsp;码：<input type="password" name="password"/><div></div></p>
+	<p><input type="button" name="" value='提交'></p>
+</form>
+
+<script type="text/javascript">
+		$('[type=button]').on('click',function(){
+			$this.css('border','1px solid');
+			// if(this.name=="verify" && this.value!=""){
+			// 	$.ajax({
+   //           type:"post",
+   //           url:"{:url('Test/test')}",
+   //           data:{'verify':this.value},
+   //           success:function(data){
+   //           	if(data==true)
+   //           	{
+   //           		alert('验证码正确');
+   //           	}
+   //           	else{
+   //           		alert('验证码错误');
+   //           	}
+   //           }
+			// 	})
+
+			// }
+		})
+	
+</script>
+</body>
+</html>

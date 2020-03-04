@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<script src="https://cdn.bootcss.com/d3/3.5.17/d3.min.js"></script>
+    {load href="__STATIC__/js/jquery-2.2.1.js" /}
+    {load href="__STATIC__/js/tree.js" /}
+</head>
+<body>
+也是测试的
+<div id="dynamicTree"></div>
+<script type="text/javascript">
+	var jsonObject = {
+			"name":"董事会1",
+			"number":"12",
+			"type":"1",
+			"children":
+			[
+			    { 
+			      "name":"职能部门" , 
+			      "number":"3",
+			      "type":"1",
+			      "children":
+			      [
+			            {
+			            "name":"o" ,
+			            "number":"381",
+			            "type":"1",
+			            "children":
+					        [
+					            {
+					            "name":"n",
+					            "number":"180",
+					            "type":"1",
+					            "children":
+							        [
+							            {
+							            "name":"m",
+							            "number":"130",
+							            "type":"1"
+							            },
+							            {
+							            "name":"l",
+							            "number":"29",
+							            "type":"1"
+							            },
+							            {
+							            "name":"k" ,
+							            "number":"21",
+							            "type":"1"
+							            }
+							        ]
+					            },
+					            {
+					            "name":"j",
+					            "number":"145",
+					            "type":"1",
+					            "children":
+							        [
+							            {
+							            "name":"i",
+							            "number":"60",
+							            "type":"1"
+							            },
+							            {
+							            "name":"h",
+							            "number":"41",
+							            "type":"1"
+							            },
+							            {
+							            "name":"g" ,
+							            "number":"44",
+							            "type":"1"
+							            }
+							        ]
+					            },
+					            {
+					            "name":"f" ,
+					            "number":"56",
+					            "type":"1",
+					            "children":
+							        [
+							            {
+							            "name":"e",
+							            "number":"9",
+							            "type":"1"
+							            },
+							            {
+							            "name":"d",
+							            "number":"2",
+							            "type":"1"
+							            },
+							            {
+							            "name":"c" ,
+							            "number":"45",
+							            "type":"1"
+							            }
+							        ]
+					            }
+					        ]
+			            },
+			            {
+			            "name":"b" ,
+			            "number":"121",
+			            "type":"1"
+			            }
+			      ] 
+			    },
+			    { 
+			      "name":"其他" , 
+			      "number":"1",
+			      "type":"1",
+			      "children":
+			      [
+			            {
+			            "name":"XX" ,
+			            "number":"183",
+			            "type":"1",
+			            "children":[]
+			            },
+			            {
+			            "name":"XXX" ,
+			            "number":"8",
+			            "type":"1"
+			            }
+			      ] 
+			    }
+			]
+		};
+		var option = {
+			dataUrl:jsonObject,
+			nodeHeight:30,
+			selector:"#dynamicTree"
+		};
+		var tree = new Tree(option);
+		tree.init();
+</script>
+</body>
+</html>
