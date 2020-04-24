@@ -93,7 +93,6 @@ class Test extends Controller
 
     public function phpinfo(){
         phpinfo();
-        echo 123;
     }
 
     public function file(){
